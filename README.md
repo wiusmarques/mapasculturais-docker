@@ -66,5 +66,5 @@
            └─5833 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
   ```
   
-  _Para mais detalhes sobre docker [clique aqui](https://www.digitalocean.com/community/tutorials/como-instalar-e-usar-o-docker-no-ubuntu-18-04-pt) e confira as informações adicionais sobre docker_
+  _Para mais detalhes sobre docker [clique aqui](https://www.digitalocean.com/community/tutorials/como-instalar-e-usar-o-docker-no-ubuntu-18-04-pt) e confira as informações adicionais sobre o assunto_
   
