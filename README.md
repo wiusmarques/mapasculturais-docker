@@ -15,7 +15,7 @@
   #### Em seguida, instale alguns pacotes de pré-requisitos que permitem que o apt utilize pacotes via HTTPS:
   
   ```
-  ubuntu@server# sudo apt-get install apt-transport-https ca-certificates curl software-properties-common -y
+  ubuntu@server# sudo apt-get install curl apt-transport-https ca-certificates curl software-properties-common -y
   ```
   
   #### Então adicione a chave GPG para o repositório oficial do Docker em seu sistema:
@@ -23,7 +23,7 @@
   ```
   ubuntu@server# curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
   ```
-  ## Adicione o repositório do Docker às fontes do APT:
+  #### Adicione o repositório do Docker às fontes do APT:
   
   ```
   ubuntu@server# sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable" -y
@@ -47,10 +47,24 @@
   ubuntu@server# sudo apt-get install docker-ce -y
   ```
   
+  #### Iremos habilitar o serviço e criar o link:
+  
+  ```
+  ubuntu@server# sudo systemctl start docker
+  ubuntu@server# sudo systemctl enable docker
+  ```
+  
   #### O Docker agora deve ser instalado, o daemon iniciado e o processo ativado para iniciar na inicialização. Verifique se ele está sendo executado:
   
   ```
   ubuntu@server# sudo systemctl status docker
+  output: Docker version 19.03.12, build 48a66213fe
+  ```
+  
+  #### Conferindo a versão do docker instalado:
+  
+  ```
+  ubuntu@server# docker --version
   ```
   
   #### A saída deve ser semelhante à seguinte, mostrando que o serviço está ativo e executando:
@@ -68,7 +82,7 @@
   
   _Para mais detalhes sobre docker [clique aqui](https://www.digitalocean.com/community/tutorials/como-instalar-e-usar-o-docker-no-ubuntu-18-04-pt) e confira as informações adicionais sobre o assunto_
   
-  ## Trabalhando com Imagens Docker
+  ## 2- Trabalhando com Imagens Docker:
   
   
   
@@ -93,6 +107,18 @@
   Hello from Docker!
   This message shows that your installation appears to be working correctly.
   ...
+  ```
+  
+  #### Instalando Docker composer:
+  
+  ```
+  ubuntu@server#  sudo curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+  ```
+  
+  #### Atribuindo a permissão necesária:
+  
+  ```
+  ubuntu@server#  sudo chmod +x /usr/local/bin/docker-compose
   ```
 
   
