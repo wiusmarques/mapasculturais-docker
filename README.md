@@ -12,11 +12,19 @@
   ```
   ubuntu@server# sudo apt-get upgrade -y
   ````
+  
+  #### Instalação de pacotes que serão utilizados:
+  
+  ```
+  ubuntu@server# sudo apt-get install curl git -y
+  ```
+  
   #### Em seguida, instale alguns pacotes de pré-requisitos que permitem que o apt utilize pacotes via HTTPS:
   
   ```
-  ubuntu@server# sudo apt-get install curl apt-transport-https ca-certificates curl software-properties-common -y
+  ubuntu@server# sudo apt-get install apt-transport-https ca-certificates curl software-properties-common -y
   ```
+  
   
   #### Então adicione a chave GPG para o repositório oficial do Docker em seu sistema:
   
@@ -120,5 +128,51 @@
   ```
   ubuntu@server#  sudo chmod +x /usr/local/bin/docker-compose
   ```
-
   
+  #### Verificado se foi instalado corretamente:
+  
+  ```
+  ubuntu@server# sudo docker-compose -version
+  output: docker-compose version 1.26.2, build eefe0d31
+  ```
+  #### Iremos clonar o repositório e acessar sua pasta
+  
+  ```
+  ubuntu@server# sudo git clone https://github.com/mapasculturais/mapasculturais-aldirblanc.git
+  ubuntu@server# cd mapasculturais-aldirblanc
+  ```
+  
+  ### Ambiete de produção:
+  
+  #### Inicializando os serviços:
+  
+  ```
+  ubuntu@server# sudo docker-compose -f docker-compose.prod.yml up
+  ```
+  
+  #### Adicione a flag ```-d``` caso queira rodar o docker em segundo plano:
+  
+  ```
+  ubuntu@server# sudo docker-compose -f docker-compose.prod.yml up -d
+  ```
+  
+  _A partir deste momento você deverá ser capaz de acessar o Mapas com o Plugin para a Lei Aldir Blanc_
+  
+  ### Ambiete de desenvolvimento:
+  
+  #### Para subir o ambiente de desenvolvimento basta entrar na pasta dev-scripts e rodar o script start-dev.sh.
+
+  ``` 
+  meu-mapas/dev-scripts/$ sudo ./start-dev.sh 
+  ```
+  _acesse no seu navegador http://localhost:8080/_
+
+  #### psysh
+
+  _Este ambiente roda com o built-in web server do PHP, o que possibilita que seja utilizado o PsySH, um console interativo para debug e desenvolvimento. No lugar desejado, adicione a linha eval(\psy\sh()); e você obterá um console. Ctrl + D para continuar a execução do código.
+
+ _Para parar o ambiente de desenvolvimento usar as teclas ```Ctrl + C```_
+
+
+
+
