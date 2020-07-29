@@ -163,7 +163,7 @@
   #### Para subir o ambiente de desenvolvimento basta entrar na pasta dev-scripts e rodar o script start-dev.sh.
 
   ``` 
-  meu-mapas/dev-scripts/$ sudo ./start-dev.sh 
+  ubuntu@server# meu-mapas/dev-scripts/$ sudo ./start-dev.sh 
   ```
   _acesse no seu navegador http://localhost:8080/_
 
@@ -173,6 +173,12 @@
 
  _Para parar o ambiente de desenvolvimento usar as teclas ```Ctrl + C```_
 
+## 3- Atualizando o Mapas Culturais
 
+#### Modifique a versão do Mapas Culturais no início do arquivo compose/production/Dockerfile e execute os comandos abaixo:
 
+```
+ubuntu@server# sudo docker-compose -f docker-compose.prod.yml build
+ubuntu@server# sudo docker-compose -f docker-compose.prod.yml restart mapasculturais
+```
 
